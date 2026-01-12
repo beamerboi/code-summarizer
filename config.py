@@ -1,0 +1,57 @@
+import torch
+from pathlib import Path
+
+BASE_DIR = Path(__file__).parent
+DATA_DIR = BASE_DIR / "data"
+MODELS_DIR = BASE_DIR / "models"
+CHECKPOINTS_DIR = BASE_DIR / "checkpoints"
+
+DATA_DIR.mkdir(exist_ok=True)
+MODELS_DIR.mkdir(exist_ok=True)
+CHECKPOINTS_DIR.mkdir(exist_ok=True)
+
+VOCAB_SIZE = 32000
+MAX_CODE_LENGTH = 256
+MAX_SUMMARY_LENGTH = 64
+
+D_MODEL = 256
+N_HEADS = 8
+N_ENCODER_LAYERS = 4
+N_DECODER_LAYERS = 4
+D_FF = 512
+DROPOUT = 0.1
+
+BATCH_SIZE = 16
+LEARNING_RATE = 1e-4
+BETAS = (0.9, 0.98)
+WARMUP_STEPS = 1000
+EPOCHS = 15
+LABEL_SMOOTHING = 0.1
+GRADIENT_ACCUMULATION_STEPS = 2
+
+MAX_TRAIN_SAMPLES = 50000
+MAX_VAL_SAMPLES = 5000
+MAX_TEST_SAMPLES = 5000
+
+BEAM_SIZE = 5
+TEMPERATURE = 1.0
+
+PAD_TOKEN = "<PAD>"
+BOS_TOKEN = "<BOS>"
+EOS_TOKEN = "<EOS>"
+UNK_TOKEN = "<UNK>"
+
+PAD_IDX = 0
+BOS_IDX = 1
+EOS_IDX = 2
+UNK_IDX = 3
+
+DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+TOKENIZER_PATH = DATA_DIR / "tokenizer.json"
+TRAIN_DATA_PATH = DATA_DIR / "train.pt"
+VAL_DATA_PATH = DATA_DIR / "val.pt"
+TEST_DATA_PATH = DATA_DIR / "test.pt"
+BEST_MODEL_PATH = CHECKPOINTS_DIR / "best_model.pt"
+
+
