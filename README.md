@@ -1,4 +1,4 @@
-# PyTorch Code Summarization Tool
+# Code Summarizer
 
 A sequence-to-sequence Transformer model for generating natural language summaries of Python code snippets.
 
@@ -89,7 +89,7 @@ python train.py
 ```
 
 Training configuration (see `config.py`):
-- Epochs: 20
+- Epochs: 15
 - Batch size: 32
 - Learning rate: 1e-4 with warmup + cosine decay
 - Model: 4 encoder layers, 4 decoder layers, 256 hidden dim, 8 attention heads
@@ -180,7 +180,7 @@ DROPOUT = 0.1               # Dropout rate
 BATCH_SIZE = 32
 LEARNING_RATE = 1e-4
 WARMUP_STEPS = 4000
-EPOCHS = 20
+EPOCHS = 15
 LABEL_SMOOTHING = 0.1
 ```
 
@@ -193,14 +193,12 @@ This project uses the **CodeSearchNet** dataset (Python subset):
 
 The data is automatically downloaded via the HuggingFace `datasets` library.
 
-## Expected Results
+## Expected Results Range
 
-Typical performance on the test set:
+Typical performance range on the test set:
 - BLEU-4: 15-20
 - ROUGE-L: 30-40
 - Perplexity: 10-20
-
-Note: Results depend on training duration, hardware, and hyperparameter tuning.
 
 
 ## References
